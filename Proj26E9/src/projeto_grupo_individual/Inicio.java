@@ -6,10 +6,10 @@ import java.util.Scanner;
 /**
  * 
  */
-public class Teste {
+public class Inicio {
 	
 	public static void main(String[]args) {
-		Gerir_ocorrencia metedos=new Gerir_ocorrencia();
+		Gerir_Ocorrencia metedos=new Gerir_Ocorrencia();
 		Scanner ler=new Scanner(System.in);
 		
 
