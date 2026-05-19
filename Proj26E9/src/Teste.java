@@ -51,7 +51,7 @@ public class Teste {
 		}while(escolha>0);
 		
 		
-	adsasdas	//novoasdasdasdaszzasssssssssssss
+	adsasdas	//novoasdasdasdaszza
 	}
 	
 }
