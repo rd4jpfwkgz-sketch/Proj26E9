@@ -213,7 +213,7 @@ public class Inicio {
 		    					case 3:
 		    						if(metedos.ver_utilizador(tipo_login)==1) {
 		    							System.out.println("*                                                                                    *");
-			    						System.out.println("*                           Novo Estado (                                              *");
+			    						System.out.println("*                           Novo Estado (Em Processo / Concluido )                   *");
 				        	        	System.out.println("*                                                                                    *");
 				        	        	String estado_editar=ler.nextLine();
 				        	        	if(metedos.existe_estado(estado_editar)==1) {
@@ -246,7 +246,16 @@ public class Inicio {
 		    						System.out.println("*                         Novo Nível Urgencia (1-5)                                  *");
 			        	        	System.out.println("*                                                                                    *");
 		    						int nivel_editar=ler.nextInt();
-		    						metedos.editar_nivel_ocorrencia(nivel_editar, nome_login, titulo_editar);
+		    						if(nivel_editar>=1 && nivel_editar<=5) {
+		    							metedos.editar_nivel_ocorrencia(nivel_editar, nome_login, titulo_editar);
+		    						}else {
+		    							System.out.println("**************************************************************************************");
+				        	        	System.out.println("*                                                                                    *");
+				        	        	System.out.println("*                            Nivel  Invalido                                         *");
+				        	        	System.out.println("*                                                                                    *");
+				        	        	System.out.println("**************************************************************************************");
+		    						}
+		    						
 		    						break;
 		    					
 		    					}
