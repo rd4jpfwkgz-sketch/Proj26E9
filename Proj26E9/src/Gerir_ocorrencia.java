@@ -1,0 +1,202 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Gerir_ocorrencia {
+	private ArrayList<Ocorrencia> lista_correncias;
+	private ArrayList<Utilizador> lista_utilizadores;
+	private ArrayList<Categoria> lista_categoria;
+	
+	/**
+	 * Construtor do gerir ocorrencia
+	 */
+	public Gerir_ocorrencia( ) {
+		this.lista_correncias = new ArrayList<Ocorrencia>();
+		this.lista_utilizadores = new ArrayList<Utilizador>();
+		this.lista_categoria = new ArrayList<Categoria>();
+	}
+	
+	/**
+	 * @param nome
+	 * @return 1 se encontrar se não 0
+	 */
+	public int existe_nome(String nome) {
+		
+		for(Utilizador u:lista_utilizadores) {
+			if(u.getNome().equals(nome)) {
+				return 1;
+			}
+		}
+		return 0;
+	}
+	
+	/**
+	 * @param tipo
+	 * @return 1 se for valido o nome Admin/Equipa/Utilizador
+	 */
+	public int existe_tipo_utilizador(String tipo) {
+		if(tipo.equals("Admin")||tipo.equals("Equipa")||tipo.equals("Utilizador")) {
+			return 1;
+		}
+		return 0;
+	}
+	
+	/**
+	 * @param uti
+	 * Adiciona/cria utilizador á lista
+	 */
+	public void registar_utilizador(Utilizador uti) {
+		lista_utilizadores.add(uti);
+	}
+	
+	/**
+	 * @param cat
+	 * @return 1 se encontrar se não 0 ->procura categoria 
+	 */
+	public int existe_categoria(String cat) {
+		for(Categoria u:lista_categoria) {
+			if(u.getNome().equals(cat)) {
+				return 1;
+			}
+		}
+		return 0;
+	}
+	
+	/**
+	 * @param o
+	 * adiciona/cria ocorrencia
+	 */
+	public void registar_ocorrencia(Ocorrencia o) {
+		lista_correncias.add(o);
+	}
+	
+	/**
+	 * @param titulo
+	 * @return 1 se encontrar se não 0 ->procura titulo
+	 */
+	public int existe_ocorrencias(String titulo) {
+		for(Utilizador u:lista_utilizadores) {
+			for (Ocorrencia o:lista_correncias) {
+				if(o.getTitulo().equals(titulo)) {
+					return 1;
+				}
+			}
+		}
+		return 0;
+		
+		
+	}
+	
+	/**
+	 * @param tipo
+	 * @return 1 se encontrar se não 0 ->se for Admin ou Equipa
+	 */
+	public int ver_utilizador(String tipo) {
+			if(tipo.equals("Admin")||tipo.equals("Equipa")) {
+				return 1;
+			}
+			return 0;
+		
+	}
+	
+	/**
+	 * @param estado
+	 * @return 1 se encontrar se não 0->se alterar o estado para Em Processo ou Concluido
+	 */
+	public int existe_estado(String estado) {
+		if(estado.equals("Em Processo")||estado.equals("Concluido")) {
+			return 1;
+		}
+		return 0;
+	}
+	
+	/**
+	 * @param titulo_novo
+	 * @param nome_utilizador
+	 * @param titulo_original
+	 * edita titulo
+	 */
+	public void editar_titulo_ocorrencia(String titulo_novo,String nome_utilizador,String titulo_original) {
+		for(Utilizador u:lista_utilizadores) {
+		for(Ocorrencia o:lista_correncias) {
+				if(u.getNome().equals(nome_utilizador)) {
+					if(o.getTitulo().equals(titulo_original)) {
+						o.setTitulo(titulo_novo);
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * @param descricao
+	 * @param nome_utilizador
+	 * @param titulo_original
+	 * edita descricao
+	 */
+	public void editar_descricao_ocorrencia(String descricao,String nome_utilizador,String titulo_original) {
+		for(Utilizador u:lista_utilizadores) {
+		for(Ocorrencia o:lista_correncias) {
+				if(u.getNome().equals(nome_utilizador)) {
+					if(o.getTitulo().equals(titulo_original)) {
+						o.setDescricao(descricao);
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * @param estado
+	 * @param nome_utilizador
+	 * @param titulo_original
+	 * editar estado
+	 */
+	public void editar_estado_ocorrencia(String estado,String nome_utilizador,String titulo_original) {
+		for(Utilizador u:lista_utilizadores) {
+		for(Ocorrencia o:lista_correncias) {
+				if(u.getNome().equals(nome_utilizador)) {
+					if(o.getTitulo().equals(titulo_original)) {
+						o.setEstado(estado);
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * @param localizacao
+	 * @param nome_utilizador
+	 * @param titulo_original
+	 * edita localizacao
+	 */
+	public void editar_localizacao_ocorrencia(String localizacao,String nome_utilizador,String titulo_original) {
+		for(Utilizador u:lista_utilizadores) {
+		for(Ocorrencia o:lista_correncias) {
+				if(u.getNome().equals(nome_utilizador)) {
+					if(o.getTitulo().equals(titulo_original)) {
+						o.setLocalizacao(localizacao);
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * @param nivel
+	 * @param nome_utilizador
+	 * @param titulo_original
+	 * edita nivel
+	 */
+	public void editar_nivel_ocorrencia(int nivel,String nome_utilizador,String titulo_original) {
+		for(Utilizador u:lista_utilizadores) {
+		for(Ocorrencia o:lista_correncias) {
+				if(u.getNome().equals(nome_utilizador)) {
+					if(o.getTitulo().equals(titulo_original)) {
+						o.setNivel_urgencia(nivel);
+					}
+				}
+			}
+		}
+	}
+	
+}
