@@ -252,6 +252,7 @@ public class Inicio {
 		    					}
 		        	        	
 		        	        }else {
+		        	        	//titulo invalido
 		        	        	System.out.println("**************************************************************************************");
 		        	        	System.out.println("*                                                                                    *");
 		        	        	System.out.println("*                            Título Invalido                                         *");
