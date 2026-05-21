@@ -3,6 +3,9 @@
  */
 
 import java.util.Scanner;
+
+
+
 import java.time.LocalDate;
 /**
  * 
@@ -369,7 +372,30 @@ public class Inicio {
 	        	        
 	        	        
 	        	        case 6://criar categoria
-	        	        	break;
+	        	        	System.out.println("*                                                                                    *");
+	        	            System.out.print("*        Nome da Categoria : ");
+	        	            String nome_categoria = ler.nextLine();
+
+	        	            // verificar se já existe
+	        	            if(metedos.existe_categoria(nome_categoria) == 1) {
+	        	                System.out.println("**************************************************************************************");
+	        	                System.out.println("*                                                                                    *");
+	        	                System.out.println("*                         Categoria já existe                                        *");
+	        	                System.out.println("*                                                                                    *");
+	        	            } else {
+	        	                Categoria nova = new Categoria(nome_categoria);
+	        	                metedos.registar_categoria(nova);
+
+	        	                System.out.println("**************************************************************************************");
+	        	                System.out.println("*                                                                                    *");
+	        	                System.out.println("*                     Categoria criada com sucesso                                   *");
+	        	                System.out.println("*                                                                                    *");
+	        	            }
+	        	            break;
+	        	        
+	        	        	
+	        	        	
+	        	        	
 	        	        
 	        	        	
 	        	        

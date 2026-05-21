@@ -1,5 +1,7 @@
-import java.util.ArrayList;
+import java.util.ArrayList; 
 import java.util.Scanner;
+
+
 
 public class Gerir_ocorrencia {
 	private ArrayList<Ocorrencia> lista_correncias;
@@ -281,6 +283,12 @@ public class Gerir_ocorrencia {
 			}
 		}
 	}
-	
+	/**
+	 * @param categoria
+	 * adiciona categoria
+	 */
+	public void registar_categoria(Categoria c) {
+	    lista_categoria.add(c);
+	}
 	
 }
