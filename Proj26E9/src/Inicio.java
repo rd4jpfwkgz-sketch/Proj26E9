@@ -176,7 +176,73 @@ public class Inicio {
 	        	        	break;
 	        	        
 	        	        case 2://pesquisar ocorrencia
-	        	        	break;
+	        	        	
+	        	        	System.out.println("**************************************************************************************");
+        	        		System.out.println("*                                                                                    *");
+    			        	System.out.println("*                            Pesquisar Categoria                                      *");
+    			        	System.out.println("*                                                                                    *");
+    			        	System.out.println("*                            1- Titulo                                               *");
+    			        	System.out.println("*                                                                                    *");
+    			        	System.out.println("*                            2- Categoria                                            *");
+    			        	System.out.println("*                                                                                    *");
+    			        	System.out.println("**************************************************************************************");
+    			        	System.out.print("*    Opcao: ");
+    			        	
+	        	        	int escolha=ler.nextInt();
+	        	        	
+	        	        	if(escolha==1) {
+	        	        		System.out.println("**************************************************************************************");
+	        	        		System.out.println("*                                Titulo                                              *");
+	    			        	System.out.println("*                                                                                    *");
+	    			        	String titulo_pesquisa=ler.nextLine();
+	    			        	
+	    			        	if(metedos.existe_titulo(titulo_pesquisa)==1) {
+	    			        		if(tipo_login.equals("Utilizador")) {
+	    			        			metedos.pesquisar_titulo_uti(nome_login, titulo_pesquisa);
+	    			        		}else {
+	    			        			metedos.pesquisar_titulo(titulo_pesquisa);
+	    			        		}
+	    			        	}else {
+	    			        		System.out.println("**************************************************************************************");
+		        	    			System.out.println("*                                                                                    *");
+		        	            	System.out.println("*                                Titulo Invalido                                     *");
+		        	            	System.out.println("*                                                                                    *");
+		        	            	System.out.println("**************************************************************************************");
+		        	    		
+	    			        	}
+	    			        	
+	        	        	}else if(escolha==2) {
+	        	        		System.out.println("**************************************************************************************");
+	        	        		System.out.println("*                                Categoria                                              *");
+	    			        	System.out.println("*                                                                                    *");
+	    			        	String categoria_pesquisa=ler.nextLine();
+	    			        	
+	    			        	if(metedos.existe_categoria(categoria_pesquisa)==1) {
+	    			        		if(tipo_login.equals("Utilizador")) {
+	    			        			metedos.pesquisar_titulo_uti(nome_login, categoria_pesquisa);
+	    			        		}else {
+	    			        			metedos.pesquisar_titulo(categoria_pesquisa);
+	    			        		}
+	    			        	}else {
+	    			        		System.out.println("**************************************************************************************");
+		        	    			System.out.println("*                                                                                    *");
+		        	            	System.out.println("*                                Categoria Invalida                                  *");
+		        	            	System.out.println("*                                                                                    *");
+		        	            	System.out.println("**************************************************************************************");
+		        	    		
+	    			        	}
+	        	        		
+	        	        	}else {
+	        	        		System.out.println("**************************************************************************************");
+	        	    			System.out.println("*                                                                                    *");
+	        	            	System.out.println("*                                Escolha Invalida                                    *");
+	        	            	System.out.println("*                                                                                    *");
+	        	            	System.out.println("**************************************************************************************");
+	        	    		
+	        	        	}
+
+
+
 	        	        
 	        	        case 3://ver detalhes 
 	        	        	System.out.println("*                                                                                    *");
