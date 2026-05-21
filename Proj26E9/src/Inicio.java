@@ -437,9 +437,9 @@ public class Inicio {
 	    					}}
 		        	        break;	
   
-	        	        case 6://criar categoria
+	        	        
 	        	        	
-	        	        	break;
+	        	        	
 	        	        
 	        	        	
 	        	        
