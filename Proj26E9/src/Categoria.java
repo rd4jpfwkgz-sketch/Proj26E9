@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-
-
 public class Categoria {
 	private ArrayList<Ocorrencia> ocorrencias;
 	private String nome;
@@ -19,3 +17,4 @@ public class Categoria {
 		return nome;
 	}
 }
+

@@ -104,12 +104,18 @@ public class Inicio {
 	        	        System.out.println("*          \\________/   |__|           |___|                                         *");
 	        	        System.out.println("*                                                                                    *");
 	        	        System.out.println("**************************************************************************************");
-	        	        System.out.println("*        1-Criar Ocorrencia                                                          *");
-	        	        System.out.println("*        2-Editar Ocorrencia                                                         *");
-	        	        System.out.println("*        3-                                                                          *");
-	        	        System.out.println("*        4-                                                                          *");
-	        	        System.out.println("*        5-                                                                          *");
-	        	        System.out.println("*        6-                                                                          *");
+	        	        if(tipo_login.equals("Utilizador")) {
+		        	        System.out.println("*        1-Criar Ocorrencia                                                          *");
+	        	        }
+	        	        System.out.println("*        2-Pesquisar Ocorrencia                                                      *");
+	        	        System.out.println("*        3-Ver detalhes                                                              *");
+	        	        System.out.println("*        4-Lista Ocorrencias                                                         *");
+	        	        System.out.println("*        5-Editar Ocorrencia                                                         *");
+
+	        	        if(tipo_login.equals("Equipa")||tipo_login.equals("Admin")) {
+		        	        System.out.println("*        6-Criar Categoria                                                           *");
+	        	        }
+	        	        System.out.println("*        7-Logout                                                                    *");
 	        	        System.out.println("**************************************************************************************");
 	        	        System.out.println("*                                                                                    *");
 	        	        System.out.print("*        Opcao: ");
@@ -119,48 +125,82 @@ public class Inicio {
 	        	        ler.nextLine();
 	        			//Analise opcoes
 	        	        switch(escolha_menu_2) {
-	        	        //criar ocorrencia
-	        	        case 1:
-	        	        	System.out.println("*                                                                                    *");
-	        	        	System.out.print("*        Categoria Ocorrencia : ");
-	        	        	String categoria=ler.nextLine();
-	        	        	
-	        	        	if(metedos.existe_categoria(categoria)==1) {
+	        	        
+	        	        case 1://criar ocorrencia
+	        	        	if(tipo_login.equals("Utilizador")) {
 		        	        	System.out.println("*                                                                                    *");
-		        	        	System.out.print("*        Título Ocorrencia : ");
-		        	        	String titulo_ocorrencia=ler.nextLine();
-		        	        	System.out.println("*                                                                                    *");
-		        	        	System.out.print("*        Descrição Ocorrencia : ");
-		        	        	String descricao_ocorrencia=ler.nextLine();
-		        	        	LocalDate data_inicio = LocalDate.now(); //data do registo ano-mes-dia
-		        	        	System.out.println("*                                                                                    *");
-		        	        	System.out.print("*        Localização Ocorrencia : ");
-		        	        	String localizacao_ocorrencia=ler.nextLine();
-		        	        	System.out.println("*                                                                                    *");
-		        	        	System.out.print("*        Nivel Ocorrencia (1-5) : ");
-		        	        	int nivel_ocorrencia=ler.nextInt();
+		        	        	System.out.print("*        Categoria Ocorrencia : ");
+		        	        	String categoria=ler.nextLine();
 		        	        	
-		        	        	//cria objeto ocorrencia
-		        	        	Ocorrencia oc=new Ocorrencia(titulo_ocorrencia,descricao_ocorrencia,"Aberto",data_inicio,null,localizacao_ocorrencia,nivel_ocorrencia);
+		        	        	if(metedos.existe_categoria(categoria)==1) {
+			        	        	System.out.println("*                                                                                    *");
+			        	        	System.out.print("*        Título Ocorrencia : ");
+			        	        	String titulo_ocorrencia=ler.nextLine();
+			        	        	System.out.println("*                                                                                    *");
+			        	        	System.out.print("*        Descrição Ocorrencia : ");
+			        	        	String descricao_ocorrencia=ler.nextLine();
+			        	        	LocalDate data_inicio = LocalDate.now(); //data do registo ano-mes-dia
+			        	        	System.out.println("*                                                                                    *");
+			        	        	System.out.print("*        Localização Ocorrencia : ");
+			        	        	String localizacao_ocorrencia=ler.nextLine();
+			        	        	System.out.println("*                                                                                    *");
+			        	        	System.out.print("*        Nivel Ocorrencia (1-5) : ");
+			        	        	int nivel_ocorrencia=ler.nextInt();
+			        	        	
+			        	        	//cria objeto ocorrencia
+			        	        	Ocorrencia oc=new Ocorrencia(nome_login,titulo_ocorrencia,descricao_ocorrencia,"Aberto",data_inicio,null,localizacao_ocorrencia,nivel_ocorrencia);
+			        	        	
+			        	        	metedos.registar_ocorrencia(oc);
+			        	        	System.out.println("*                                                                                    *");
+			        	        	System.out.println("**************************************************************************************");
+			        	        	System.out.println("*                                                                                    *");
+						        	System.out.println("*                        Ocorrencia Criada com sucesso                               *");
+						        	System.out.println("*                                                                                    *");
 		        	        	
-		        	        	metedos.registar_ocorrencia(oc);
-		        	        	System.out.println("*                                                                                    *");
-		        	        	System.out.println("**************************************************************************************");
-		        	        	System.out.println("*                                                                                    *");
-					        	System.out.println("*                        Ocorrencia Criada com sucesso                               *");
-					        	System.out.println("*                                                                                    *");
-	        	        	
-	        	        	}else {//se não existir categoria
+		        	        	}else {//se não existir categoria
+		        	        		System.out.println("**************************************************************************************");
+		        	        		System.out.println("*                                                                                    *");
+		    			        	System.out.println("*                            Categoria Invalida                                      *");
+		    			        	System.out.println("*                                                                                    *");
+		        	        	}
+	        	        	}else {
 	        	        		System.out.println("**************************************************************************************");
 	        	        		System.out.println("*                                                                                    *");
-	    			        	System.out.println("*                            Categoria Invalida                                      *");
+	    			        	System.out.println("*                            Tipo Utilizador Invalido                                *");
 	    			        	System.out.println("*                                                                                    *");
-	        	        	}
 	        	        	
+	        	        	}
 	        	        	break;
 	        	        
-	        	        //editar
-	        	        case 2:
+	        	        case 2://pesquisar ocorrencia
+	        	        	break;
+	        	        
+	        	        case 3://ver detalhes 
+	        	        	System.out.println("*                                                                                    *");
+	        	        	System.out.print("*        Título Ocorrencia : ");
+	        	        	String titulo_ocorrencia=ler.nextLine();
+	        	        	
+	        	        	if(metedos.existe_titulo(titulo_ocorrencia, nome_login)==1) {
+	        	        		metedos.lista_ver_detalhes(nome_login, tipo_login);
+	        	        	}else {
+	        	        		System.out.println("**************************************************************************************");
+	        	        		System.out.println("*                                                                                    *");
+	    			        	System.out.println("*                            Título invalido                                         *");
+	    			        	System.out.println("*                                                                                    *");
+	        	        	
+	        	        	}
+	        	        	break;
+	        	        	
+	        	        case 4://lista ocorrencias 
+	        	        	if(tipo_login.equals("Admin")|| tipo_login.equals("Equipa")) {
+	        	        		metedos.lista_ocorrencia_admin();
+	        	        	}else {
+	        	        		metedos.lista_ocorrencia_utilizador(nome_login);
+	        	        	} 	    	
+	        	        	break;
+	        	        
+
+	        	        case 5://editar
 	        	        	//pesquisar por titulo
 	        	        	System.out.println("**************************************************************************************");
 	        	        	System.out.println("*                                                                                    *");
@@ -169,134 +209,171 @@ public class Inicio {
 	        	        	System.out.println("**************************************************************************************");
 	    					String titulo_editar=ler.nextLine();
 	        	        	
-	    					//menu editar
-	        	        	if(metedos.existe_ocorrencias(titulo_editar)==1) {
-		        	        	System.out.println("**************************************************************************************");
-		    					System.out.println("*                                                                                    *");
-		    					System.out.println("*                            1-editar titulo                                         *");
-		    					System.out.println("*                                                                                    *");
-		    					System.out.println("*                            2-editar descrição                                      *");
-		    					System.out.println("*                                                                                    *");
-		    					System.out.println("*                            3-editar Estado                                         *");
-		    					System.out.println("*                                                                                    *");
-		    					System.out.println("*                            4-editar localização                                    *");
-		    					System.out.println("*                                                                                    *");
-		    					System.out.println("*                            5-editar nivel de urgência                              *");
-		    					System.out.println("*                                                                                    *");
-		        	        	System.out.println("**************************************************************************************");
-		        	        	System.out.println("*                                                                                    *");
-		        		        System.out.print("*        Opcao: ");
-		        		        int escolha_menu_editar=ler.nextInt();
-		        		        System.out.println("*                                                                                    *");
-		        		        System.out.println("**************************************************************************************");
-		    					ler.nextLine();
-		    					
-		    					switch(escolha_menu_editar) {
-		    					case 1:
+	    					if(metedos.existe_titulo_utilizador(nome_login, titulo_editar)==1) {
+	    						//menu editar
+		        	        	if(metedos.existe_ocorrencias(titulo_editar)==1) {
+			        	        	System.out.println("**************************************************************************************");
+			    					System.out.println("*                                                                                    *");
+			    					System.out.println("*                            1-editar titulo                                         *");
+			    					System.out.println("*                                                                                    *");
+			    					System.out.println("*                            2-editar descrição                                      *");
+			    					System.out.println("*                                                                                    *");
+			    					System.out.println("*                            3-editar localização                                    *");
+			    					System.out.println("*                                                                                    *");
+			    					System.out.println("*                            4-editar nivel de urgência                              *");
+			    					System.out.println("*                                                                                    *");
+			    					System.out.println("*                            5-Voltar ao inicio                                      *");
+			        	        	
+			    					System.out.println("**************************************************************************************");
+			        	        	System.out.println("*                                                                                    *");
+			        		        System.out.print("*        Opcao: ");
+			        		        int escolha_menu_editar=ler.nextInt();
+			        		        System.out.println("*                                                                                    *");
+			        		        System.out.println("**************************************************************************************");
+			    					ler.nextLine();
+			    					
+			    					switch(escolha_menu_editar) {
+			    					case 1:
 
-			        	        	System.out.println("*                                                                                    *");
-		    						System.out.println("*                           Novo Titulo                                              *");
-			        	        	System.out.println("*                                                                                    *");
-		    						String nome_editar=ler.nextLine();
-		    						// editar titulo
-		    						metedos.editar_titulo_ocorrencia(nome_editar, nome_login, titulo_editar);
-		    						
-		    						break;
-		    					case 2:
-		    						System.out.println("*                                                                                    *");
-		    						System.out.println("*                           Nova Descrição                                           *");
-			        	        	System.out.println("*                                                                                    *");
-		    						String descricao_editar=ler.nextLine();
-		    						//editar descrição
-		    						metedos.editar_descricao_ocorrencia(descricao_editar, nome_login, titulo_editar);
-		    						break;
-		    					case 3:
-		    						if(metedos.ver_utilizador(tipo_login)==1) {
-		    							System.out.println("*                                                                                    *");
-			    						System.out.println("*                           Novo Estado (Em Processo / Concluido )                   *");
 				        	        	System.out.println("*                                                                                    *");
-				        	        	String estado_editar=ler.nextLine();
-				        	        	if(metedos.existe_estado(estado_editar)==1) {
-				        	        		//editar estado
-				        	        		metedos.editar_estado_ocorrencia(estado_editar, nome_login, titulo_editar);
-				        	        	}else {
-				        	        		System.out.println("*                                                                                    *");
-				    			        	System.out.println("*                                 Estado Invalido                                      *");
-				    			        	System.out.println("*                                                                                    *");
-				        	        	}
-		    						}else {
-		    							System.out.println("*                                                                                    *");
-			    						System.out.println("*                     O utilizador não tem permissões                                *");
+			    						System.out.println("*                           Novo Titulo                                              *");
 				        	        	System.out.println("*                                                                                    *");
-				        	        	
-		    						}
-		    						
-		    						break;
-		    					case 4:
-		    						//editar localização
-		    						System.out.println("*                                                                                    *");
-		    						System.out.println("*                           Nova Localização                                         *");
-			        	        	System.out.println("*                                                                                    *");
-			        	        	String localizacao_editar=ler.nextLine();
-			        	        	metedos.editar_localizacao_ocorrencia(localizacao_editar, nome_login, titulo_editar);
-		    						break;
-		    					case 5:
-		    						//editar urgencia
-		    						System.out.println("*                                                                                    *");
-		    						System.out.println("*                         Novo Nível Urgencia (1-5)                                  *");
-			        	        	System.out.println("*                                                                                    *");
-		    						int nivel_editar=ler.nextInt();
-		    						if(nivel_editar>=1 && nivel_editar<=5) {
-		    							metedos.editar_nivel_ocorrencia(nivel_editar, nome_login, titulo_editar);
-		    						}else {
-		    							System.out.println("**************************************************************************************");
+			    						String nome_editar=ler.nextLine();
+			    						// editar titulo
+			    						metedos.editar_titulo_ocorrencia(nome_editar, nome_login, titulo_editar);
+			    						
+			    						break;
+			    					case 2:
+			    						System.out.println("*                                                                                    *");
+			    						System.out.println("*                           Nova Descrição                                           *");
 				        	        	System.out.println("*                                                                                    *");
-				        	        	System.out.println("*                            Nivel  Invalido                                         *");
+			    						String descricao_editar=ler.nextLine();
+			    						//editar descrição
+			    						metedos.editar_descricao_ocorrencia(descricao_editar, nome_login, titulo_editar);
+			    						break;
+			    					
+			    						
+			    						
+			    					case 3:
+			    						//editar localização
+			    						System.out.println("*                                                                                    *");
+			    						System.out.println("*                           Nova Localização                                         *");
 				        	        	System.out.println("*                                                                                    *");
-				        	        	System.out.println("**************************************************************************************");
-		    						}
-		    						
-		    						break;
-		    					
-		    					}
-		        	        	
-		        	        }else {
-		        	        	//titulo invalido
+				        	        	String localizacao_editar=ler.nextLine();
+				        	        	metedos.editar_localizacao_ocorrencia(localizacao_editar, nome_login, titulo_editar);
+			    						break;
+			    					case 4:
+			    						//editar urgencia
+			    						System.out.println("*                                                                                    *");
+			    						System.out.println("*                         Novo Nível Urgencia (1-5)                                  *");
+				        	        	System.out.println("*                                                                                    *");
+			    						int nivel_editar=ler.nextInt();
+			    						if(nivel_editar>=1 && nivel_editar<=5) {
+			    							metedos.editar_nivel_ocorrencia(nivel_editar, nome_login, titulo_editar);
+			    						}else {
+			    							System.out.println("**************************************************************************************");
+					        	        	System.out.println("*                                                                                    *");
+					        	        	System.out.println("*                            Nivel  Invalido                                         *");
+					        	        	System.out.println("*                                                                                    *");
+					        	        	System.out.println("**************************************************************************************");
+			    						}
+			    					case 5:
+			    						break;	
+			    						
+			    					
+			    					}
+			    					
+	    					}else {
+	    						//titulo invalido
 		        	        	System.out.println("**************************************************************************************");
 		        	        	System.out.println("*                                                                                    *");
 		        	        	System.out.println("*                            Título Invalido                                         *");
 		        	        	System.out.println("*                                                                                    *");
 		        	        	System.out.println("**************************************************************************************");
-		        	        }
+	    					}
+		        	        	
+	    					}else {
+	    						//menu editar
+		        	        	if(metedos.existe_ocorrencias(titulo_editar)==1) {
+			        	        	System.out.println("**************************************************************************************");
+			    					System.out.println("*                                                                                    *");
+			    					System.out.println("*                            1-Editar Estado                                         *");
+			    					System.out.println("*                            2-Voltar ao Inicio                                      *");
+			    					
+			    					System.out.println("**************************************************************************************");
+			        	        	System.out.println("*                                                                                    *");
+			        		        System.out.print("*        Opcao: ");
+			        		        int escolha_menu_editar=ler.nextInt();
+			        		        System.out.println("*                                                                                    *");
+			        		        System.out.println("**************************************************************************************");
+			    					ler.nextLine();
+			    					
+			    					if(escolha_menu_editar==1) {
+			    						if(metedos.ver_utilizador(tipo_login)==1) {
+			    							System.out.println("*                                                                                    *");
+				    						System.out.println("*                           Novo Estado (Em Processo / Concluido )                   *");
+					        	        	System.out.println("*                                                                                    *");
+					        	        	String estado_editar=ler.nextLine();
+					        	        	if(metedos.existe_estado(estado_editar)==1) {
+					        	        		//editar estado
+					        	        		metedos.alterar_estado(estado_editar, titulo_editar);
+					        	        	}else {
+					        	        		System.out.println("*                                                                                    *");
+					    			        	System.out.println("*                                 Estado Invalido                                      *");
+					    			        	System.out.println("*                                                                                    *");
+					    			        	break;
+					        	        	}
+			    						}else {
+			    							System.out.println("*                                                                                    *");
+				    						System.out.println("*                     O utilizador não tem permissões                                *");
+					        	        	System.out.println("*                                                                                    *");
+					        	        	break;
+			    						}
+			    						
+			    						
+			    						
+			    					
+			    					}
+			    					else if (escolha_menu_editar==2){
+			    						break;
+			    						
+			    					
+			    					}else {
+			    						//titulo invalido
+				        	        	System.out.println("**************************************************************************************");
+				        	        	System.out.println("*                                                                                    *");
+				        	        	System.out.println("*                            Opção Invalida                                         *");
+				        	        	System.out.println("*                                                                                    *");
+				        	        	System.out.println("**************************************************************************************");
+			    					}
+			    					
+	    					}else {
+	    						//titulo invalido
+		        	        	System.out.println("**************************************************************************************");
+		        	        	System.out.println("*                                                                                    *");
+		        	        	System.out.println("*                            Título Invalido                                         *");
+		        	        	System.out.println("*                                                                                    *");
+		        	        	System.out.println("**************************************************************************************");
+	    					}}
+		        	        break;	
+	    					
+	    					
+		    					
+		    					
+		    					
+		    					
+		        	        	
+		        	        
 	        	        
-	        	        case 3:
 	        	        	
+	        	        
+	        	        
+	        	        case 6://criar categoria
+	        	        	break;
+	        	        
 	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	//codigo aqui editar menu linha 109
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
+	        	        
+	        	        
 	        	        	
 	        	        	
 	        	        	

@@ -145,23 +145,7 @@ public class Gerir_ocorrencia {
 		}
 	}
 	
-	/**
-	 * @param estado
-	 * @param nome_utilizador
-	 * @param titulo_original
-	 * editar estado
-	 */
-	public void editar_estado_ocorrencia(String estado,String nome_utilizador,String titulo_original) {
-		for(Utilizador u:lista_utilizadores) {
-		for(Ocorrencia o:lista_correncias) {
-				if(u.getNome().equals(nome_utilizador)) {
-					if(o.getTitulo().equals(titulo_original)) {
-						o.setEstado(estado);
-					}
-				}
-			}
-		}
-	}
+	
 	
 	/**
 	 * @param localizacao
@@ -198,5 +182,105 @@ public class Gerir_ocorrencia {
 			}
 		}
 	}
+	
+	
+	/**
+	 * lista de todas as ocorrencias
+	 */
+	public void lista_ocorrencia_admin() {
+		for(Ocorrencia o:lista_correncias) {
+			o.toString();
+		}
+	}
+	
+	/**
+	 * @param nome_login
+	 * lista das ocorrencias criadas pelo utilizador
+	 */
+	public void lista_ocorrencia_utilizador(String nome_login) {
+		for(Utilizador u:lista_utilizadores) {
+				for(Ocorrencia o:lista_correncias) {
+					if(o.getNome_autor().equals(nome_login)) {
+						o.toString();
+				}
+			}
+			
+			}
+	}
+	
+	
+	/**
+	 * @param titulo
+	 * @param nome
+	 * @return
+	 * verifica se existe o titulo da ocorrencia num utilizador
+	 */
+	public int existe_titulo(String titulo,String nome) {
+		
+		for(Ocorrencia o:lista_correncias) {
+			if(o.getNome_autor().equals(nome)) {
+				if(o.getTitulo().equals(titulo)) {
+					return 1;
+				}
+			}
+		}
+			
+		
+		return 0;
+	}
+	
+	
+	
+	/**
+	 * @param tipo_utilizador
+	 * @param titulo
+	 * ver detalhes ocorrencia 
+	 */
+	public void lista_ver_detalhes(String tipo_utilizador, String titulo) {
+		for(Utilizador u:lista_utilizadores) {
+			for(Ocorrencia o:lista_correncias) {
+				if(u.getTipo_utilizador().equals("Utilizador")) {
+					o.detalhes();
+				}else {
+					o.detalhes();
+				}
+			}
+			
+		}
+	}
+	
+	
+	/**
+	 * @param nome_utilizador
+	 * @param titulo
+	 * @return
+	 * exiete titulo no utilizador 
+	 */
+	public int existe_titulo_utilizador(String nome_utilizador,String titulo) {
+	
+		for(Ocorrencia o:lista_correncias) {
+			if(o.getNome_autor().equals(nome_utilizador)) {
+				if(o.getTitulo().equals(titulo)) {
+					return 1;
+				}
+			}
+		}
+		return 0;
+		
+	}
+	
+	/**
+	 * @param titulo
+	 * @param estado
+	 * alterar estado
+	 */
+	public void alterar_estado(String titulo,String estado) {
+		for(Ocorrencia o:lista_correncias) {
+			if(o.getTitulo().equals(titulo)) {
+				o.setEstado(estado);
+			}
+		}
+	}
+	
 	
 }
