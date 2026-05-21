@@ -283,4 +283,121 @@ public class Gerir_ocorrencia {
 	}
 	
 	
+	/**
+	 * @param utilizador
+	 * @param titulo
+	 * pesquisar titulo
+	 */
+	public void pesquisar_titulo_uti(String utilizador,String titulo) {
+		int existe=0;
+		for(Utilizador u:lista_utilizadores) {
+			for(Ocorrencia o:lista_correncias) {
+				if(u.getNome().equals(utilizador)) {
+					if(o.getTitulo().equals(titulo)) {
+						o.toString();
+						existe=1;
+					}
+				}
+			}
+		}
+		if(existe==0) {
+			System.out.println("**************************************************************************************");
+			System.out.println("*                                                                                    *");
+        	System.out.println("*                                Não existe titulo                                   *");
+        	System.out.println("*                                                                                    *");
+        	System.out.println("**************************************************************************************");
+		
+		}
+	}
+	
+	
+	/**
+	 * @param titulo
+	 * pesquisar titulo equipa/admin 
+	 */
+	public void pesquisar_titulo(String titulo) {
+			int existe=0;
+			for(Ocorrencia o:lista_correncias) {
+					if(o.getTitulo().equals(titulo)) {
+						o.toString();
+						existe=1;
+					}
+				
+			}
+			if(existe==0) {
+				System.out.println("**************************************************************************************");
+				System.out.println("*                                                                                    *");
+	        	System.out.println("*                                Não existe titulo                                   *");
+	        	System.out.println("*                                                                                    *");
+	        	System.out.println("**************************************************************************************");
+			
+			}
+		
+	}
+	
+	/**
+	 * @param utilizador
+	 * @param categoria
+	 * pesquisar catgoria utilizador 
+	 */
+	public void pesquisar_categoria_uti(String utilizador,String categoria) {
+		int existe=0;
+		for(Utilizador u:lista_utilizadores) {
+			for(Ocorrencia o:lista_correncias) {
+				if(u.getNome().equals(utilizador)) {
+					if(o.getTitulo().equals(categoria)) {
+						o.toString();
+						existe=1;
+					}
+				}
+			}
+		}
+		if(existe==0) {
+			System.out.println("**************************************************************************************");
+			System.out.println("*                                                                                    *");
+        	System.out.println("*                                Não existe categoria                                   *");
+        	System.out.println("*                                                                                    *");
+        	System.out.println("**************************************************************************************");
+		
+		}
+	}
+	
+	/**
+	 * @param categoria
+	 * pesquisar categoria
+	 */
+	public void pesquisar_categoria(String categoria) {
+		int existe =0;
+		for(Ocorrencia o:lista_correncias) {
+			if(o.getTitulo().equals(categoria)) {
+				o.toString();
+				existe=1;
+			}
+		}
+		if(existe==0) {
+			System.out.println("**************************************************************************************");
+			System.out.println("*                                                                                    *");
+        	System.out.println("*                                Não existe categoria                                   *");
+        	System.out.println("*                                                                                    *");
+        	System.out.println("**************************************************************************************");
+		
+		}
+	}
+	
+	
+	/**
+	 * @param titulo
+	 * @return
+	 * existe titulo
+	 */
+	public int existe_titulo(String titulo) {
+		for(Ocorrencia o:lista_correncias) {
+			if(o.getTitulo().equals(titulo)) {
+				return 1;
+			}
+		}
+		
+		return 0;
+	}
+	
 }
