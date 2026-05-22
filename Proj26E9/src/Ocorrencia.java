@@ -112,15 +112,30 @@ public class Ocorrencia {
 	
 	@Override
 	public String toString() {
+		if(estado.equals("Concluido")) {
+			return "Ocorrencia: " + titulo + " | Estado: " + estado + " | Data Inicio: " + data_inicial + " | Data Final: "+data_final;
+		}
 		return "Ocorrencia: " + titulo + " | Estado: " + estado + " | Data Inicio: " + data_inicial ;
 	}
 	
 	public String detalhes() {
 		for(Categoria c:lista_categoria) {
-			return "Ocorrencia: "+titulo+" | Descrição: "+descricao+" | Estado: "+estado+" | Categoria: "+c.getNome() +" | Data_registo:" + data_inicial;
+			if(estado.equals("Concluido")) {
+				
+				return "Ocorrencia: "+titulo+" | Descrição: "+descricao+" | Estado: "+estado+" | Categoria: "+c.getNome() +" | Data de registo:" + data_inicial + " | Data final: "+data_final;
+			
+			}else {
+				
+				return "Ocorrencia: "+titulo+" | Descrição: "+descricao+" | Estado: "+estado+" | Categoria: "+c.getNome() +" | Data de registo:" + data_inicial;
+			
+			}
 		}
 		return null;
 		
 	}
+	public void setData_final(LocalDate data_final) {
+		this.data_final = data_final;
+	}
+	
 	
 }

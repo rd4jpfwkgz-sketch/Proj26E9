@@ -1,6 +1,6 @@
 import java.util.ArrayList; 
 import java.util.Scanner;
-
+import java.time.LocalDate;
 
 
 public class Gerir_ocorrencia {
@@ -283,6 +283,24 @@ public class Gerir_ocorrencia {
 			}
 		}
 	}
+	
+	
+	/**
+	 * @param titulo
+	 * @param estado
+	 * @param data
+	 * quando da como concluida muda a data final
+	 */
+	public void alterar_estado_data(String titulo,String estado,LocalDate data) {
+		for(Ocorrencia o:lista_correncias) {
+			if(o.getTitulo().equals(titulo)) {
+				o.setEstado(estado);
+				o.setData_final(data);
+			}
+		}
+	}
+	
+	
 	/**
 	 * @param categoria
 	 * adiciona categoria

@@ -385,13 +385,26 @@ public class Inicio {
 					        	        	String estado_editar=ler.nextLine();
 					        	        	if(metedos.existe_estado(estado_editar)==1) {
 					        	        		//editar estado
-					        	        		metedos.alterar_estado(estado_editar, titulo_editar);
+					        	        		
+					        
+					        	        		if(estado_editar.equals("Em Processo")) {
+					        	        			metedos.alterar_estado(estado_editar, titulo_editar);
+					        	        		}else {
+
+							        	        	LocalDate data_estado = LocalDate.now(); //data do fim ano-mes-dia
+					        	        			metedos.alterar_estado(estado_editar, titulo_editar);
+					        	        		}
+					        	        		
+					    
+					        	        		
+					        	        		
 					        	        	}else {
 					        	        		System.out.println("*                                                                                    *");
 					    			        	System.out.println("*                                 Estado Invalido                                      *");
 					    			        	System.out.println("*                                                                                    *");
 					    			        	break;
 					        	        	}
+			    						
 			    						}else {
 			    							System.out.println("*                                                                                    *");
 				    						System.out.println("*                     O utilizador não tem permissões                                *");
@@ -425,18 +438,7 @@ public class Inicio {
 		        	        	System.out.println("**************************************************************************************");
 	    					}}
 		        	        break;	
-	    					
-	    					
-		    					
-		    					
-		    					
-		    					
-		        	        	
-		        	        
-	        	        
-	        	        	
-	        	        
-	        	        
+     	        
 	        	        case 6://criar categoria
 	        	        	System.out.println("*                                                                                    *");
 	        	            System.out.print("*        Nome da Categoria : ");
@@ -458,24 +460,7 @@ public class Inicio {
 	        	                System.out.println("*                                                                                    *");
 	        	            }
 	        	            break;
-	        	        
-	        	        	
-	        	        	
-	        	        	
-	        	        
-	        	        	
-	        	        
-	        	        
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
-	        	        	
+	        	         	
 	        	        	
 	        	        }
 
@@ -512,9 +497,6 @@ public class Inicio {
         	System.out.println("*                                                                                    *");
         	System.out.println("**************************************************************************************");
 		}
-		
-		
 	}
-	
 	
 }
