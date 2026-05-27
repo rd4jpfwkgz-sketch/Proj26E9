@@ -103,8 +103,9 @@ public class Inicio {
 							System.out.println("*        5-Lista Categorias/List categories                                          *");
 							if (user.equals("Equipa") || user.equals("Admin")) {
 								System.out.println("*        6-Criar Categoria/Create Category                                          *");
+								System.out.println("*        7-Filtrar mes/ano /Filter by month/year                                    *");
 							}
-							System.out.println("*        7-Logout                                                                    *");
+							System.out.println("*        8-Logout                                                                    *");
 							System.out.println("**************************************************************************************");
 							System.out.println("*                                                                                    *");
 							System.out.print("*        Opcao/Option: ");
@@ -373,8 +374,47 @@ public class Inicio {
 								}
 								break;
 
-							// logout
-							case 7:
+							
+								
+								
+								
+								
+							//filtrar
+							case 7:	
+								System.out.println("*                                                                                    *");
+								System.out.println("*        1-Filtrar por mes / Filter by month                                         *");
+								System.out.println("*                                                                                    *");
+								System.out.println("*        2-Filtrar por ano / Filter by year                                          *");
+								System.out.println("*                                                                                    *");
+								System.out.println("**************************************************************************************");
+								System.out.println("*                                                                                    *");
+								System.out.print("*       Opcao/Option: ");
+								int opcao_filtrar = ler.nextInt();
+								System.out.println("*                                                                                    *");
+								System.out.println("**************************************************************************************");
+								
+								if(opcao_filtrar==1) {
+									System.out.println("*                                                                                    *");
+									System.out.print("*       Mes/Month: ");
+									int mes_filtrar = ler.nextInt();
+									metedos.filtrar_mes(mes_filtrar);
+								}else if{
+									System.out.println("*                                                                                    *");
+									System.out.print("*       Ano/Year: ");
+									int ano_filtrar = ler.nextInt();
+									metedos.filtrar_ano(ano_filtrar);
+								}else {
+									System.out.println("*                                                                                    *");
+									System.out.println("*                            Opcao Invalido/Invalid Opcion                           *");
+									System.out.println("*                                                                                    *");
+								
+								}
+								
+								
+								
+								
+								// logout
+							case 8:
 								System.out.println("*                                                                                    *");
 								System.out.println("*                          Logout efectuado com sucesso!                             *");
 								System.out.println("*                                                                                    *");
@@ -389,7 +429,7 @@ public class Inicio {
 								break;
 							}
 
-						} while (escolha_menu_2 != 7); // CORRIGIDO: era != 8
+						} while (escolha_menu_2 != 7); 
 
 					} else {
 						System.out.println("*                                                                                    *");
